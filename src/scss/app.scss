@@ -20,6 +20,7 @@ body {
   font-family: Manrope;
   box-sizing: border-box;
   height: 400vh;
+  overflow-x: hidden;
 }
 .header {
   padding: 16px 0;
@@ -28,7 +29,7 @@ body {
   width: 100%;
   left: 0;
   top: 0;
-  background: var(--black-color);
+
   z-index: 2;
   .header__inner {
     display: flex;
@@ -113,6 +114,8 @@ body {
         margin: 40px 0 0;
         .button {
           margin: 0 16px 0 0;
+          transition: 0.5s;
+
           &:last-child {
             margin: 0;
           }
@@ -122,7 +125,34 @@ body {
     &_image {
       position: relative;
       max-width: 700px;
-      overflow: hidden;
+
+      &:before {
+        content: '';
+        width: 75%;
+        height: 75%;
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        background: #f5bf0c;
+        border-radius: 50%;
+        filter: blur(32px);
+        background-size: 60%;
+        background: linear-gradient(180deg, #f7bb23 13.84%, #fe9330 55.57%, #f18b2c 100%);
+        opacity: 0.7;
+        filter: blur(100px);
+      }
+      .circle {
+        position: absolute;
+        left: 1px;
+        top: 25px;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        animation: rotate 35s forwards infinite;
+      }
       .image__features {
         position: absolute;
         bottom: 100px;
@@ -136,7 +166,7 @@ body {
           border: 1px solid rgba(255, 255, 255, 0.6);
           backdrop-filter: blur(20px);
           margin: 0 0 8px 0;
-          transform: translateX(200%);
+          opacity: 0;
           &:last-child {
             margin: 0;
           }
