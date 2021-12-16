@@ -73,7 +73,11 @@
   font-size: em(15);
   display: inline-block;
   border-radius: 6px;
+  cursor: pointer;
   transition: .5s;
+  @media (max-width:1024px) {
+        padding: 16px 28px;    
+  }
   &:hover {
     background: #F8D45F !important;
   }

@@ -8,15 +8,14 @@ $container-max-widths: (
   md: 720px,
   lg: 960px,
   xl: 1290px,
-  xxl: 1320px,
+  xxl: 1290px,
 );
 @import 'bootstrap';
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 
 body {
-  background: url('../images/noise.svg');
-  background: var(--black-color);
+  background-color: #131313;
   font-family: Manrope;
   box-sizing: border-box;
   height: 400vh;
@@ -29,25 +28,34 @@ body {
   width: 100%;
   left: 0;
   top: 0;
-
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(19, 19, 19, 0.2);
   z-index: 2;
   .header__inner {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
     .header__item {
       flex: 1;
       display: flex;
+      &.nav {
+        @media (max-width: 1024px) {
+          display: none;
+        }
+      }
       .item__logo {
         width: 154px;
       }
+
       .header__nav {
         display: flex;
         margin: 0;
         font-size: em(15);
         font-weight: 500;
         padding: 0;
+
         .nav__item {
           list-style: none;
           margin: 0 38px 0 0;
@@ -73,17 +81,26 @@ body {
         border-radius: 6px;
         cursor: pointer;
         font-size: em(15);
+        @media (max-width: 1024px) {
+          padding: 10px 16px;
+          font-size: em(13);
+        }
       }
     }
   }
 }
 
 .main-screen {
-  padding: var(--padding-main-screen) 0 0;
+  padding-top: var(--padding-main-screen);
   color: var(--white-color);
-
+  font-weight: 400;
   justify-content: space-between;
   margin: auto;
+  @media (max-width: 1024px) {
+    --padding-main-screen: 90px;
+    --bs-gutter-x: 16px;
+    flex-direction: column-reverse;
+  }
   &__item {
     &_text {
       .item__title {
@@ -93,6 +110,10 @@ body {
         max-width: 512px;
         margin: 7rem 0 0;
         color: var(--accent-color);
+        @media (max-width: 1024px) {
+          font-size: em(32);
+          max-width: 300px;
+        }
         span {
           color: var(--white-color);
         }
@@ -101,6 +122,9 @@ body {
         margin: 25px 0 0;
         font-size: em(28);
         opacity: 0.9;
+        @media (max-width: 1024px) {
+          font-size: em(20);
+        }
       }
       .item__description {
         margin: 25px 0 0;
@@ -108,6 +132,10 @@ body {
         line-height: 156%;
         font-size: em(18);
         max-width: 442px;
+        color: rgba(255, 255, 255, 0.9);
+        @media (max-width: 1024px) {
+          font-size: em(18);
+        }
       }
       .item__buttons {
         display: flex;
@@ -125,7 +153,11 @@ body {
     &_image {
       position: relative;
       max-width: 700px;
-
+      aspect-ratio: 1;
+      @media (max-width: 1024px) {
+        overflow: hidden;
+        aspect-ratio: 0;
+      }
       &:before {
         content: '';
         width: 75%;
@@ -143,20 +175,32 @@ body {
         background: linear-gradient(180deg, #f7bb23 13.84%, #fe9330 55.57%, #f18b2c 100%);
         opacity: 0.7;
         filter: blur(100px);
+        @media (max-width: 1024px) {
+          content: '';
+          content: none;
+        }
       }
       .circle {
         position: absolute;
-        left: 1px;
-        top: 25px;
-        width: 100%;
-        height: 100%;
+        width: 85%;
+        height: 85%;
         z-index: -1;
-        animation: rotate 35s forwards infinite;
+        animation: rotate 105s forwards infinite;
+        left: 48.8%;
+        top: 53.2%;
+        @media (max-width: 1024px) {
+         width: 100%;
+         height: 100%;
+        }
       }
       .image__features {
         position: absolute;
         bottom: 100px;
         right: 0px;
+        @media (max-width: 1024px) {
+          bottom: 0;
+          right: -10px;
+        }
         .features__item {
           color: var(--black-color);
           font-weight: 600;
@@ -167,6 +211,13 @@ body {
           backdrop-filter: blur(20px);
           margin: 0 0 8px 0;
           opacity: 0;
+          display: flex;
+          align-items: center;
+          @media (max-width: 1024px) {
+            padding: 10px 14px;
+            font-size: em(12);
+            margin: 0 0 4px 0;
+          }
           &:last-child {
             margin: 0;
           }
@@ -179,6 +230,17 @@ body {
           }
           .item__icon {
             margin: 0 10px 0 0;
+            display: block;
+            @media (max-width: 1024px) {
+              width: 12px;
+              height: 12px;
+              margin: 0 6px 0 0;
+              svg {
+                width: 100%;
+                height: 100%;
+                display: block;
+              }
+            }
           }
         }
       }
