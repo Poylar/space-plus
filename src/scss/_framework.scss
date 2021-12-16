@@ -1,13 +1,3 @@
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
-}
-
 .j-center {
   justify-content: center;
 }
@@ -56,5 +46,36 @@
   grid-gap: 30px;
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
+  }
+}
+
+.light-green-color {
+  background: var(--light-green-color);
+}
+
+.aero-blue-color {
+  background: var(--aero-blue-color);
+}
+
+.almond-color {
+  background: var(--almond-color);
+}
+
+.water-color {
+  background: var(--water-color);
+}
+
+.button {
+  padding: 16px 40px;
+  background: var(--accent-color);
+  color: var(--black-color);
+  font-weight: 700;
+  font-size: em(15);
+  display: inline-block;
+  border-radius: 6px;
+  &.btn_black {
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white-color);
   }
 }
