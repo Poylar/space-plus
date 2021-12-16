@@ -15,6 +15,7 @@ $container-max-widths: (
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 
 body {
+  background: url('../images/noise.svg');
   background: var(--black-color);
   font-family: Manrope;
   box-sizing: border-box;
@@ -49,6 +50,10 @@ body {
         .nav__item {
           list-style: none;
           margin: 0 38px 0 0;
+          color: rgba(255, 255, 255, 0.84);
+          &:hover {
+            color: rgb(255, 255, 255);
+          }
           &:last-child {
             margin: 0;
           }
@@ -75,7 +80,7 @@ body {
 .main-screen {
   padding: var(--padding-main-screen) 0 0;
   color: var(--white-color);
-  align-items: center;
+
   justify-content: space-between;
   margin: auto;
   &__item {
@@ -85,6 +90,7 @@ body {
         font-weight: 500;
         line-height: 120%;
         max-width: 512px;
+        margin: 7rem 0 0;
         color: var(--accent-color);
         span {
           color: var(--white-color);
