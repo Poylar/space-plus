@@ -1,3 +1,3 @@
 # space-plus
 
-https://poylar.github.io/Einzelwek/
+https://poylar.github.io/space-plus/
